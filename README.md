@@ -19,6 +19,16 @@ nodes = pd.read_csv("fao_trade_nodes.txt",sep=" ")
 nodes = nodes.drop("nodeID",axis = 1)
 num = nodes.shape[0]
 
+L = max(Link["layerID"].tolist())
+A = np.zeros((L,num,num))
+
+
+for j in range(Link.shape[0]):
+    node1 = Link["node_1"][j]-1
+    node2 = Link["node_2"][j]-1
+    index = Link["layerID"][j]-1
+    A[index,node1,node2] = 1
+
 
 index=[0, 2, 13, 19, 23, 28, 29, 32, 35, 37,141, 152,158, 206, 292, 294, 301, 302,308, 324]  # Most dense 20 layers 
 Tensor_A = np.zeros((20,num,num))
@@ -104,6 +114,8 @@ for j in range(Lead_U.shape[0]):
 kmeans = KMeans(n_clusters=4,random_state=50).fit(U_star)
 
 k = kmeans.labels_
-pd.DataFrame(preserve_node)[k==0][0].tolist()
-
+Group1 = pd.DataFrame(preserve_node)[k==0][0].tolist()
+Group2 = pd.DataFrame(preserve_node)[k==1][0].tolist()
+Group3 = pd.DataFrame(preserve_node)[k==2][0].tolist()
+Group4 = pd.DataFrame(preserve_node)[k==3][0].tolist()
 ```
