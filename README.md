@@ -115,10 +115,10 @@ layers = [
     (retw,        5)
 ]
 
-# 构建 ID 到索引的映射（避免重复调用 list.index）
+
 id_to_index = {node_id: idx for idx, node_id in enumerate(ID)}
 
-# 统一处理每一层
+
 for df, idx in layers:
     for _, row in df.iterrows():
         node1 = row['node1']
@@ -127,7 +127,7 @@ for df, idx in layers:
         i2 = id_to_index[node2]
         A[idx, i1, i2] = 1
 
-num = A.shape[1]  # 获取节点数量（假设 A[i] 是 num x num 的邻接矩阵）
+num = A.shape[1]  
 bias_adj = np.zeros((num, num))
 
 
