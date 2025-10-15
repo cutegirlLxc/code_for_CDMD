@@ -73,7 +73,7 @@ import itertools as it
 
 football_id = pd.read_csv("football_id.txt",header = None)
 football_id.columns = ["number"]
-ID = football_id["number"].to_list()   # 变成列表方便索引
+ID = football_id["number"].to_list()  
 team = [arsenal,villa,chelsea,everton,fulham,liverpool,
        mancity,manutd,newcastle,norwich,qpr,reading,southampton,
        spurs,stoke,sunderland,swansea,westbrom,westham,wigan]
