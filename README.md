@@ -109,7 +109,7 @@ U_star  = np.zeros(Lead_U.shape)
 for j in range(Lead_U.shape[0]):
     norm = np.linalg.norm(Lead_U[j])
     if norm != 0:
-        U_star[j] = Lead_U[j]/norm  # spherical cluster
+        U_star[j] = Lead_U[j]/norm  
 
 kmeans = KMeans(n_clusters=4,random_state=50).fit(U_star)
 
