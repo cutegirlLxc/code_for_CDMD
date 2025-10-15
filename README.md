@@ -164,7 +164,7 @@ right_num = []
 
 for j in range(20):
     in_team = k_hat[karray==j]
-    right_num.append(Counter(in_team).most_common(1)[0][1])  # 提取出现次数最多的
+    right_num.append(Counter(in_team).most_common(1)[0][1])  
 
 error_rata = 1-sum(right_num)/num
 ```
